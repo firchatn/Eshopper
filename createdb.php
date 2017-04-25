@@ -32,7 +32,7 @@ mysql_query("CREATE TABLE user (
 mysql_query("CREATE TABLE produit (
 	  id INT AUTO_INCREMENT,
 	  name VARCHAR(20),
-	  des VARCHAR(20),
+	  des VARCHAR(200),
 	  prix NUMBER,
 	  quantite NUMBER,
 	  img VARCHAR(20)
