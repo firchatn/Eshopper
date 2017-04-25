@@ -25,3 +25,4 @@ if($count == 1) {
       }
 
 $conn->close();
+?>

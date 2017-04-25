@@ -12,12 +12,12 @@ if ($conn->connect_error) {
 } 
 
 
-$nom = $_POST['names'];
+$name = $_POST['names'];
 $email = $_POST['emails'];
 $pass = $_POST['passwords'];
 
-$sql = "INSERT INTO clients (nom, email, password)
-VALUES ('$nom', '$email','$pass')";
+$sql = "INSERT INTO clients (name, email, password)
+VALUES ('$name', '$email','$pass')";
 
 
 if ($conn->query($sql) === TRUE) {
@@ -27,3 +27,4 @@ if ($conn->query($sql) === TRUE) {
 }
 
 $conn->close();
+?>
