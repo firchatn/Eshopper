@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin</title>
+
+</head>
+<body>
+
+<h1>welcome to admin page !!! </h1>
+<center>
+<div id="list" style="text-align: left">
+<ul>
+	<li href="ajouter_clients.html">ajouter client</li>
+	<li href="ajouter_admin.html">ajouter admin</li>
+</ul>
+</div>
+<form method="post" action = "">
+
+
+<?php
+if($id=mysql_connect("localhost","root","")){
+		if($id_db=mysql_select_db("projectweb")){
+			echo "succés de connexion<br/>";
+					echo " liste des societe ";
+			if($resultat=mysql_query("select * from societe;")){
+				echo "<center> <table border=1>";
+				while($ligne=mysql_fetch_row($resultat)){
+					$nom=$ligne[0];
+					$id=$ligne[1];
+					$pays=$ligne[2];
+					$tel=$ligne[3];
+					$email=$ligne[4];
+					echo "<tr><td>$nom</td><td>$id</td><td>$pays</td><td>$tel</td><td>$email</td><tr>";
+		}
+		echo "</table> </center>";	
+			}
+			if($resultat=mysql_query("select * from clients;")){
+				echo "<center> <table border=1>";
+				while($ligne=mysql_fetch_row($resultat)){
+					$id=$ligne[0];
+					$nom=$ligne[1];
+					$prenom=$ligne[2];
+					$email=$ligne[3];
+					$motpass=$ligne[4];
+					$tel=$ligne[5];
+					echo "<tr><td>$id</td><td>$nom</td><td>$prenom</td><td>$email</td><td>$motpass</td><td>$tel</td><tr>";
+				}
+			print( "</table> </center>");
+			
+			}
+			echo "test";
+	
+			}
+}
+?>
+
+</form>
+<center>
+
+
+
+</body>
+</html>

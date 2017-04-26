@@ -1,28 +1,29 @@
 <?php
-$servername = "localhost";
-$username = "";
-$password = "";
-$dbname = "";
+if($id=mysql_connect("localhost","root","")){
+		if($id_db=mysql_select_db("projectweb")){
+			$test=false;
+			echo "succés de connexion<br/>";
+			$u=$_POST['emaill'];
+			$p=$_POST['passwordl'];
+			if($resultat=mysql_query("select * from clients;")){
+				while($ligne=mysql_fetch_row($resultat)){
+					if ($u==$ligne[3] && $p==$ligne[4]){
+						$test = true;
+						echo " $u welcome";
+					}
+				}
+				if (! $test){
+					echo "clients pas trover ! ";
+			}}
+				
+						
+}
+if ($test==true){
+	header("Location: shop.php", true, 301);
+}
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
 
 
-$email = $_POST['emaill'];
-$pass = $_POST['passwordl'];
+}
 
-$sql = "SELECT id FROM clients WHERE email = '$email' and password = '$pass'";
-$result = $conn->query($sql)
-$count = mysqli_num_rows($result);
-if($count == 1) {
-         header("location: shop.html");
-      }else {
-         $error = "Your Login Name or Password is invalid";
-      }
-
-$conn->close();
 ?>
