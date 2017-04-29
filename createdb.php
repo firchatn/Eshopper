@@ -38,14 +38,6 @@ mysql_query("CREATE TABLE produit (
 	  img VARCHAR(20)
 	  PRIMARY KEY(id)
 	)") Or die(mysql_error());
-	mysql_query("CREATE TABLE pannier (
-	  id INT AUTO_INCREMENT,
-	  refproduit VARCHAR(20),
-	  idclinet VARCHAR(200),
-	  quantite NUMBER,
-	  img VARCHAR(20)
-	  PRIMARY KEY(id)
-	)") Or die(mysql_error());
 
 
 $conn->close();

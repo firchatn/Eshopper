@@ -25,6 +25,18 @@
 </head><!--/head-->
 
 <body>
+		<?php
+					session_start(); 					
+					if($id=mysql_connect('localhost','root','')){
+					if($id_db=mysql_select_db('projectweb')){
+					$v = $_SESSION['user'];
+					$result=mysql_query("SELECT count(*) as total from pannier where idclient = '$v';");
+					$data=mysql_fetch_assoc($result);
+					
+					}
+					}
+						
+					?>
 	<header id="header"><!--header-->
 		<div class="header_top"><!--header_top-->
 			<div class="container">
@@ -63,8 +75,7 @@
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
 								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+								<li><a href="cart.php"><i class="fa fa-shopping-cart"></i><?php echo $data['total']; ?> Cart</a></li>
 							</ul>
 						</div>
 					</div>
@@ -204,7 +215,9 @@
 							$prix=$ligne[3];
 							$quantite=$ligne[4];
 							$imgd=$ligne[5];
-						
+							$_SESSION['ref'] = $ref;
+							$_SESSION['prix'] = $prix;
+							$_SESSION['quantite'] = $quantite;
 					echo ("<div class='col-sm-4'>
 							<div class='product-image-wrapper'>
 								<div class='single-products'>
@@ -219,7 +232,7 @@
 										<div class='overlay-content'>
 											<h2>$ $prix</h2>
 											<p>$nom </p>
-											<a href='#' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Add to cart</a>
+											<a href='add.php' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Add to cart</a>
 
 										</div>
 									</div>

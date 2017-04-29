@@ -1,4 +1,5 @@
 <?php
+session_start();
 if($id=mysql_connect("localhost","root","")){
 		if($id_db=mysql_select_db("projectweb")){
 			$test=false;
@@ -10,6 +11,8 @@ if($id=mysql_connect("localhost","root","")){
 					if ($u==$ligne[3] && $p==$ligne[4]){
 						$test = true;
 						echo " $u welcome";
+						
+						$_SESSION['user'] = $ligne[0]. ""; ;
 					}
 				}
 				if (! $test){
