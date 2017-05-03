@@ -2,8 +2,6 @@
 if($id=mysql_connect("localhost","root","")){
 		if($id_db=mysql_select_db("projectweb")){
 			$test=false;
-			echo "succés de connexion<br/>";
-			echo "listes des clients";
 			$u=$_POST['username'];
 			$p=$_POST['password'];
 			if($resultat=mysql_query("select * from admins;")){

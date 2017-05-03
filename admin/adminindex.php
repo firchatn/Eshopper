@@ -45,6 +45,8 @@ h3 {
 	<li><a href="ajouter_admin.html">ajouter admin</a></li>
 	<li><a href="ajouter_produit.html">ajouter produit</a></li>
 	<li><a href="ajouter_societe.html">ajouter societe</a></li>
+	<li><a href="suprimerproduits.php">suprimer produit</a></li>
+	<li><a href="suprimerclients.php">suprimer client</a></li>
 </ul>
 </div>
 <div id="adminss" style="text-align: left">
