@@ -12,4 +12,13 @@ echo 'Error creating database: ' . mysql_error() . "\n";
 if (!mysql_select_db('database_name')){
 die('Could not select database: ' . mysql_error());
 }
+$req = "CREATE TABLE `clients` (
+ `id` varchar(20) DEFAULT NULL,
+ `nom` varchar(20) DEFAULT NULL,
+ `prenom` varchar(50) DEFAULT NULL,
+ UNIQUE KEY (`id`)
+);";
+mysql_query($req);
+
+
 ?>
